@@ -4,7 +4,7 @@ resource "ibm_is_lb" "lb1" {
 }
 
 resource "ibm_is_lb_pool" "lb1-pool" {
-  lb = "${ibm_is_lb.lb1.id}"
+  lb = "ibm_is_lb.lb1.id"
   name = "${var.vpc_name}-lb1-pool"
   protocol = "http"
   algorithm = "round_robin"

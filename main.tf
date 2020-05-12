@@ -1,4 +1,4 @@
-resource "ibm_is_ssh_key" "my-ssh-key" {
+resource "ibm_is_ssh_key" "sshkey1" {
   name       = "my-ssh-key"
   public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCcx9zaXwmhw5+ry2wuWKQEy8rciZ8hika0QiEXoQy3qulMhajs+e/q0Byz9Ahiv65tYoGbDPzQQwiSceVam4CZnLxXXtpyeJ97sRrbdYOxBXtMt69dlZg3cKHVbKN0iydRLMo7HQpvWx9p5AoTNt0u+lMg/joy9tpc8h791QJ3MbqYbx7JqtcOtwnRhdNe/Hi/BCobL/+lYCriMnTjD5ZPPHyWur7aAnl8YlQmYJLFBbXKbcMzbfJ2WuZ3dXQP/xOse5wJ94UZ9S1GcXj1BgH892EGnAyRhAHsKO2yeLmbOiIWu5MRJ1RPWrjB43OKnbRsIUjhFIS2QX4rjTlyzFEn jeevan@Jeevans-MBP.lan"
 }
