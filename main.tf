@@ -1,12 +1,10 @@
-resource "ibm_is_ssh_key" "sshkey1" {
-  name       = "my-ssh-key"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCcx9zaXwmhw5+ry2wuWKQEy8rciZ8hika0QiEXoQy3qulMhajs+e/q0Byz9Ahiv65tYoGbDPzQQwiSceVam4CZnLxXXtpyeJ97sRrbdYOxBXtMt69dlZg3cKHVbKN0iydRLMo7HQpvWx9p5AoTNt0u+lMg/joy9tpc8h791QJ3MbqYbx7JqtcOtwnRhdNe/Hi/BCobL/+lYCriMnTjD5ZPPHyWur7aAnl8YlQmYJLFBbXKbcMzbfJ2WuZ3dXQP/xOse5wJ94UZ9S1GcXj1BgH892EGnAyRhAHsKO2yeLmbOiIWu5MRJ1RPWrjB43OKnbRsIUjhFIS2QX4rjTlyzFEn jeevan@Jeevans-MBP.lan"
+data "ibm_is_ssh_key" "sshkey1" {
+  name = "${var.ssh_key_name}"
 }
 
 resource "ibm_is_vpc" "vpc1" {
   name = "${var.vpc_name}"
   address_prefix_management = "auto"
-  classic_access = "true"
 }
 
 resource "ibm_is_vpc_address_prefix" "vpc-ap1" {
@@ -44,7 +42,7 @@ resource "ibm_is_instance" "instance1" {
   image   = "${var.image}"
   profile = "${var.profile}"
 
-  primary_network_interface {
+  primary_network_interface = {
     subnet = "${ibm_is_subnet.subnet1.id}"
   }
   vpc  = "${ibm_is_vpc.vpc1.id}"
@@ -58,7 +56,7 @@ resource "ibm_is_instance" "instance2" {
   image   = "${var.image}"
   profile = "${var.profile}"
 
-  primary_network_interface {
+  primary_network_interface = {
     subnet = "${ibm_is_subnet.subnet2.id}"
   }
   vpc  = "${ibm_is_vpc.vpc1.id}"
